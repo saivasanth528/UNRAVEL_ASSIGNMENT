@@ -9,8 +9,8 @@ public class Aggregation {
      */
     void mergeBuckets(ArrayList<Bucket> buckets,  int maxSize, int mergedIndex, Bucket bufferBucket) {
 
-
-
+        // this code can be extended to merging of more than two buckets by having while loop inside the for loop for compaction calculations
+        // i += 2 indicates the number of buckets we need to merge
         for(int i = 0; i < maxSize - 1; i+=2) {
             // using setters and getters, since we should not access the attributes directly
             bufferBucket.setStartTime(getMinStartTime(buckets.get(i).getStartTime(), buckets.get(i+1).getStartTime()));
