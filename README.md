@@ -6,3 +6,4 @@ Merging of buckets
 3) Attached the screenshot for sample output
 4) Output contains columns of start time, end time, CPU, Memory fields
 5) Before aggregation showing n buckets, after aggregation displaying n/2 buckets, since they are compacted
+6) The code can be extended to compaction of n buckets, but to keep the things simple, i have just considered two buckets
