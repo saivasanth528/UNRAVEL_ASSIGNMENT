@@ -49,6 +49,9 @@ public class Bucket {
         return this.memoryUsage;
     }
 
+    void printBucket() {
+        System.out.print(this.startTime + " " + this.endTime + " " + this.cpuUsage + " " + this.memoryUsage + "\n");
+    }
 
 
 }

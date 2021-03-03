@@ -5,6 +5,7 @@ public class Aggregation {
         @Param1 : ArrayList of buckets
         @Param2: maxSize - max entries of bucket instances
         @Param3: mergedIndex  - from which index this function need to start merging
+        @Param4: bufferBucket to hold the values of calculated buckets
      */
     void mergeBuckets(ArrayList<Bucket> buckets,  int maxSize, int mergedIndex, Bucket bufferBucket) {
 
@@ -21,7 +22,9 @@ public class Aggregation {
             bufferBucket.setMemoryUsage(getAverageMemory(buckets.get(i).getMemoryUsage(),  buckets.get(i+1).getMemoryUsage()));
 
             buckets.set(mergedIndex, bufferBucket); // replacing the bucket
+            buckets.get(mergedIndex).printBucket();
             mergedIndex++;
+
         }
 
     }
