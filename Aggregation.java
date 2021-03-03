@@ -6,9 +6,9 @@ public class Aggregation {
         @Param2: maxSize - max entries of bucket instances
         @Param3: mergedIndex  - from which index this function need to start merging
      */
-    void mergeBuckets(ArrayList<Bucket> buckets,  int maxSize, int mergedIndex) {
+    void mergeBuckets(ArrayList<Bucket> buckets,  int maxSize, int mergedIndex, Bucket bufferBucket) {
 
-        Bucket bufferBucket = new Bucket(); // to maintain the calculatedValues, will be created only once
+
 
         for(int i = 0; i < maxSize - 1; i+=2) {
             // using setters and getters, since we should not access the attributes directly
@@ -23,6 +23,7 @@ public class Aggregation {
             buckets.set(mergedIndex, bufferBucket); // replacing the bucket
             mergedIndex++;
         }
+
     }
 
 

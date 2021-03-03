@@ -3,7 +3,7 @@ public class Bucket {
     double cpuUsage, memoryUsage;
 
     Bucket() {
-
+    // for empty bucket
     }
 
     Bucket(int startTime, int endTime, double cpuUsage, double memoryUsage) {

@@ -6,7 +6,7 @@ public class PerformanceAnalyser {
         int MAX_CAPACITY = 64;
         ArrayList<Bucket> bucketList = new ArrayList<Bucket>(MAX_CAPACITY);
         Bucket bucket;
-
+        Bucket bufferBucket = new Bucket(); // to maintain the calculatedValues, will be created only once
 
         int startTime, endTime;
         double cpuUsage, memoryUsage;
@@ -20,7 +20,8 @@ public class PerformanceAnalyser {
         }
 
         Aggregation obj = new Aggregation();
-        obj.mergeBuckets(bucketList, MAX_CAPACITY, 0);
+
+        obj.mergeBuckets(bucketList, MAX_CAPACITY, 0, bufferBucket);
 
         // we can again repeatedly generate the data and can call the mergeBuckets function whenever we reaches the threshold
 
