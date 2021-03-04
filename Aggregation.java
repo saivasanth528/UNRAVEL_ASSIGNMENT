@@ -21,11 +21,26 @@ public class Aggregation {
 
             bufferBucket.setMemoryUsage(getAverageMemory(buckets.get(i).getMemoryUsage(),  buckets.get(i+1).getMemoryUsage()));
 
-            buckets.set(mergedIndex, bufferBucket); // replacing the bucket
-            buckets.get(mergedIndex).printBucket();
+            // previously i used to over ride the bucket, but i realised my mistake, the same bucket will be assigned to all
+            // so i am setting the values now explicitly. Now the overrides will not happen
+
+            buckets.get(mergedIndex).setStartTime(bufferBucket.startTime);
+
+            buckets.get(mergedIndex).setEndTime(bufferBucket.endTime);
+
+            buckets.get(mergedIndex).setCpuUsage(bufferBucket.cpuUsage);
+
+            buckets.get(mergedIndex).setMemoryUsage(bufferBucket.memoryUsage);
+
+
             mergedIndex++;
 
         }
+
+        for(int i =0; i < mergedIndex; i++) {
+            buckets.get(i).printBucket();
+        }
+
 
     }
 
