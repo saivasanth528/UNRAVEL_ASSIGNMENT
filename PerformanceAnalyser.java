@@ -3,7 +3,7 @@ import java.util.Random;
 
 public class PerformanceAnalyser {
     public static void main(String args[]) {
-        int MAX_CAPACITY = 10;
+        int MAX_CAPACITY = 64;
         ArrayList<Bucket> bucketList = new ArrayList<Bucket>(MAX_CAPACITY); // creating with max capacity
         Bucket bucket;
         Bucket bufferBucket = new Bucket(); // to maintain the calculatedValues, will be created only once
